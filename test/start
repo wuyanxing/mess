@@ -1,0 +1,29 @@
+'''
+with 用于取消try catch ，但是要在class中实现__enter__和 __exit__ 方法
+'''
+class test:
+    def fun(self):
+        x = 10
+        stement = "look(%d) " % x
+        print(stement)
+
+    def __enter__(self):
+        return self
+    def __exit__(self, exc_type, exc_val, exc_tb):
+        print('exit')
+        print(exc_type)
+        print(exc_val)
+        print(exc_tb)
+        return True
+
+class test1(test):
+    pass
+    def fun(self, arg):
+        super().fun()
+        print('wwwww')
+
+with test1() as t:
+    t.fun(11)
+
+pp = """ hell """
+print(pp)
